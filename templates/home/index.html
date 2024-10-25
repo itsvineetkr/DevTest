@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTest</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>DevTest</h1>
+        <h3>Excel/CSV Summarizer</h3>
+        <p>Upload an Excel or CSV file to summarize its data.</p>
+        <form action = "result/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="upload_file">
+            <input type="file" name="file" accept=".csv, .xlsx" required>
+            <br>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
