@@ -17,7 +17,6 @@ def result(request):
             elif file.name.endswith('.xlsx'):
                 df = pd.read_excel(file)
             
-            
             processed_df = df.groupby(['Cust State', 'Cust Pin']).agg({'DPD': 'sum'}).reset_index()
             current_time = datetime.now().strftime('%Y%m%d_%H%M%S')
             output_file_path = f'media/data/processed_data_{current_time}.xlsx'
